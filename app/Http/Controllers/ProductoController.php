@@ -14,7 +14,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        return Producto::all();
+        return $productos=Producto::all();
     }
 
     /**
@@ -26,6 +26,13 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //
+        $producto= new Producto();
+
+        $producto->nombre=$request->get('nombre');
+        $producto->precio=$request->get('precio');
+        $producto->cantidad=$request->get('cantidad');
+
+        $producto->save();
     }
 
     /**
@@ -36,7 +43,7 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-     return Producto::find($id);
+     return $producto=Producto::find($id);
     }
 
     /**
@@ -49,6 +56,12 @@ class ProductoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $producto->nombre=$request->get('nombre');
+        $producto->precio=$request->get('precio');
+        $producto->cantidad=$request->get('cantidad');
+        $producto->foto=$request->get('foto');
+
+        $producto->update();
     }
 
     /**
@@ -60,5 +73,12 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         //
+        $producto=Producto::find($id);
+
+        $producto->delete();
+    }
+
+    public function obtenerProductos(){
+        return 'HOLA MUNDO';
     }
 }

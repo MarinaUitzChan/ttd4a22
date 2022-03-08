@@ -44,3 +44,4 @@ Route::get('getRazas/{id_especie}', [
     'uses' => 'EspecieController@getRazas',
 ]);
 
+Route::view('productos','productos');

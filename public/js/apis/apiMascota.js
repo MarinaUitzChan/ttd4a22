@@ -171,8 +171,6 @@ new Vue({
 
 		}
 
-
-		
 	},
 	// FIN DE METHODS
 

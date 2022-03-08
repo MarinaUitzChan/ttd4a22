@@ -14,8 +14,8 @@ class Especie extends Model
     public $timestamps=false;
 
     public $fillable=[
-    	'id_especie',
-    	'especie'
+    	//'id_especie',
+    	'especie',
     ];
 
 }
