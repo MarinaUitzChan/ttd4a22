@@ -62,7 +62,7 @@ new Vue({
 
 			// Se envia los datos en json al controlador
 			this.$http.post(apiProducto,producto).then(function(j){
-				this.obtenerProducto();
+				this.obtenerProductos();
 				this.nombre='';
 				this.precio='';
 				this.cantidad='';
@@ -87,7 +87,7 @@ new Vue({
 			if (confir)
 			{
 				this.$http.delete(apiProducto + '/' + id).then(function(json){
-					this.obtenerProducto();
+					this.obtenerProductos();
 				}).catch(function(json){
 
 				});
@@ -95,11 +95,11 @@ new Vue({
 		},
 
 
-		editandoProducto:function(id){
+		editandoProducto:function(sku){
 			this.agregando=false;
-			this.id_sku=id;
+			this.id_sku=sku;
 
-			this.$http.get(apiProducto + '/' + id).then(function(json){
+			this.$http.get(apiProducto + '/' +sku).then(function(json){
 			  // console.log(json.data);
 			  this.nombre=json.data.nombre;
 			  this.precio=json.data.precio;
@@ -117,10 +117,8 @@ new Vue({
 							   cantidad:this.cantidad,
 								};
 
-			// console.log(jsonMascota);
-
 			this.$http.patch(apiProducto + '/' + this.id_sku,jsonProducto).then(function(json){
-				this.obtenerProducto();
+				this.obtenerProductos();
 
 			});
 			$('#modalProducto').modal('hide');

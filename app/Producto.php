@@ -16,7 +16,6 @@ class Producto extends Model
     public $timestamps=false;
 
     protected $fillable=[
-    	'sku',
     	'nombre',
     	'precio',
     	'cantidad'

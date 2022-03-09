@@ -56,6 +56,7 @@ class ProductoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $producto = Producto::find($id);
         $producto->nombre=$request->get('nombre');
         $producto->precio=$request->get('precio');
         $producto->cantidad=$request->get('cantidad');

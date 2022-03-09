@@ -46,11 +46,11 @@
 							<td>@{{producto.precio}}</td>
 							<td>@{{producto.cantidad}}</td>
 							<td>
-								<button class="btn btn-sm" @click="editandoProducto(producto.id_sku)">
+								<button class="btn btn-sm" @click="editandoProducto(producto.sku)">
 									<i class="fas fa-pen"></i>
 								</button>
 
-								<button class="btn btn-sm" @click="eliminarProducto(producto.id_sku)">
+								<button class="btn btn-sm" @click="eliminarProducto(producto.sku)">
 									<i class="fas fa-trash"></i>
 								</button>
 							</td>
