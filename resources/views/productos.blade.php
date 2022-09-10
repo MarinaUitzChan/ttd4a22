@@ -33,6 +33,7 @@
 					<thead>
 						<th hidden="">ID SKU</th>
 						<th>NOMBRE</th>
+						<th>FOTOGRAFIA</th>
 						<th>PRECIO</th>
 						<th>CANTIDAD</th>
 						<th>ACCIONES</th>
@@ -43,6 +44,7 @@
 						<tr v-for="producto in filtroProducto">
 							<td hidden="">@{{producto.id_sku}}</td>
 							<td>@{{producto.nombre}}</td>
+							<td>@{{producto.foto}}</td>
 							<td>@{{producto.precio}}</td>
 							<td>@{{producto.cantidad}}</td>
 							<td>

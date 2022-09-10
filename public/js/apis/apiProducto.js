@@ -47,6 +47,7 @@ new Vue({
 			this.nombre='';
 			this.precio='';
 			this.cantidad='';
+			this.foto='';
 			
 			$('#modalProducto').modal('show');
 		},
@@ -58,27 +59,21 @@ new Vue({
 				precio:this.precio,
 				cantidad:this.cantidad};
 
-			    // console.log(mascota);
-
 			// Se envia los datos en json al controlador
 			this.$http.post(apiProducto,producto).then(function(j){
 				this.obtenerProductos();
 				this.nombre='';
 				this.precio='';
 				this.cantidad='';
+				this.foto='';
 
 			}).catch(function(j){
 				console.log(j);
 			});
-
-
-			
+		
 			$('#modalProducto').modal('hide');
 
 			console.log(producto);
-
-
-
 		},
 
 		eliminarProducto:function(id){
@@ -100,10 +95,11 @@ new Vue({
 			this.id_sku=sku;
 
 			this.$http.get(apiProducto + '/' +sku).then(function(json){
-			  // console.log(json.data);
+			  console.log(json.data);
 			  this.nombre=json.data.nombre;
 			  this.precio=json.data.precio;
 			  this.cantidad=json.data.cantidad;
+			  this.foto=json.data.foto;
 			});
 
 			$('#modalProducto').modal('show');
@@ -115,6 +111,7 @@ new Vue({
 			var jsonProducto = {nombre:this.nombre,
 							   precio:this.precio,
 							   cantidad:this.cantidad,
+							   foto:this.foto,
 								};
 
 			this.$http.patch(apiProducto + '/' + this.id_sku,jsonProducto).then(function(json){
@@ -146,6 +143,5 @@ new Vue({
 		}
 	}
 	// FIN DE COMPUTED
-
 
 });

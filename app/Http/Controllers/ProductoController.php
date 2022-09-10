@@ -14,6 +14,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
+      
         return $productos=Producto::all();
     }
 
@@ -31,6 +32,7 @@ class ProductoController extends Controller
         $producto->nombre=$request->get('nombre');
         $producto->precio=$request->get('precio');
         $producto->cantidad=$request->get('cantidad');
+        $producto->foto=$request->get('foto');
 
         $producto->save();
     }
@@ -43,7 +45,7 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-     return $producto=Producto::find($id);
+     return Producto::find($id);
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Luecano\NumeroALetras\NumeroALetras;
 use App\Mascota;
 use App\Propietario;
 /*
@@ -45,3 +46,20 @@ Route::get('getRazas/{id_especie}', [
 ]);
 
 Route::view('productos','productos');
+
+Route::apiResource('apiVenta', 'VentaController');
+
+Route::get('convertir', function(){
+	$convertir = new NumeroALetras();
+	return $convertir->toMoney(12515.58, 2, 'PESOS', 'CENTAVOS');
+});
+
+Route::get('ticket/{folio}',[
+			'as'=>'ticket',
+			'uses'=>'VentaController@ticket']);
+
+Route::view('graf','grafica');
+
+Route::get('getDatos', 'GraficoController@getDatos');
+
+Route::view('grafvue', 'graficovue');
